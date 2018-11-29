@@ -402,7 +402,7 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 }
 
 
-void UKF::NormalizeAngles(double angle) {
+double UKF::NormalizeAngles(double angle) {
   auto times = round( fabs( angle / (2.0 * M_PI) ) );
   
   if (angle > M_PI) {

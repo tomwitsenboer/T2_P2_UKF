@@ -115,7 +115,7 @@ public:
   /**
   * Normalize angles
   */
-  void NormalizeAngles(double angle);
+  double NormalizeAngles(double angle);
   
 };
 
