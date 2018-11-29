@@ -17,7 +17,7 @@ public:
   double NIS_radar_;
   
   ///* NIS LIDAR
-  double NIS_lidar_;
+  double NIS_lidar_:
 
   ///* initially set to false, set to true in first call of ProcessMeasurement
   bool is_initialized_;
@@ -112,7 +112,7 @@ public:
   /**
   * Normalize angles
   */
-  double NormalizeAngle(double angle);
+  double NormalizeAngles(double angle);
   
 };
 
