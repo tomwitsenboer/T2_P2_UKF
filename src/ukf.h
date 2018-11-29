@@ -14,10 +14,10 @@ class UKF {
 public:
 
   ///* NIS RADAR
-  double NIS_radar_;
+  double NIS_RADAR_;
   
   ///* NIS LIDAR
-  double NIS_lidar_;
+  double NIS_LIDAR_;
 
   ///* initially set to false, set to true in first call of ProcessMeasurement
   bool is_initialized_;
