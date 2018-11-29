@@ -65,9 +65,9 @@ UKF::UKF() {
     weights(i) = weight;
   }
   //set NIS Lidar
-  NIS_LIDAR = 0;
+  double NIS_LIDAR = 0;
   //set NIS Radar
-  NIS_RADAR = 0;  
+  double NIS_RADAR = 0;  
 }
 
 UKF::~UKF() {}
