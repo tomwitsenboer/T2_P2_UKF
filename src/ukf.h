@@ -36,6 +36,9 @@ public:
 
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
+  
+  ///* weights
+  VectorXd weights;
 
   ///* time when the state is true, in us
   long long time_us_;
