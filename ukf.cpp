@@ -65,9 +65,9 @@ UKF::UKF() {
     weights(i) = weight;
   }
   //set NIS Lidar
-  double NIS_LIDAR = 0;
+  double NIS_LIDAR_ = 0;
   //set NIS Radar
-  double NIS_RADAR = 0;  
+  double NIS_RADAR_ = 0;  
 }
 
 UKF::~UKF() {}
@@ -290,10 +290,10 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   VectorXd z_diff = z - z_pred;
 
   //angle normalization
-  NIS_LIDAR = z_diff.transpose() * S.inverse() * z_diff;
+  NIS_LIDAR_ = z_diff.transpose() * S.inverse() * z_diff;
   
   // prevents P from diverging (check source)
-  if (NIS_LIDAR > 100.0) {
+  if (NIS_LIDAR_ > 100.0) {
   is_initialized_ = false;
   }
   
@@ -388,10 +388,10 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 
   //angle normalization
   NormalizeAngles(&z_diff(1));
-  NIS_RADAR = z_diff.transpose() * S.inverse() * z_diff;
+  NIS_RADAR_ = z_diff.transpose() * S.inverse() * z_diff;
   
   // prevents P from diverging (check source)
-  if (NIS_RADAR > 100.0) {
+  if (NIS_RADAR_ > 100.0) {
   is_initialized_ = false;
   }
   else {
