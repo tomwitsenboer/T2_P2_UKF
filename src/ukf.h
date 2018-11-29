@@ -13,6 +13,12 @@ using Eigen::VectorXd;
 class UKF {
 public:
 
+  ///* NIS RADAR
+  double NIS_radar_;
+  
+  ///* NIS LIDAR
+  double NIS_lidar_:
+
   ///* initially set to false, set to true in first call of ProcessMeasurement
   bool is_initialized_;
 
@@ -102,6 +108,14 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+  
+  /**
+  * Normalize angles
+  */
+  double NormalizeAngle(double angle);
+  
 };
+
+  
 
 #endif /* UKF_H */
