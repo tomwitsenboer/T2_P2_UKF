@@ -386,7 +386,7 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
   VectorXd z_diff = z - z_pred;
 
   //angle normalization
-  z_diff(1,i) = NormalizeAngles(z_diff(1,i));
+  z_diff(1) = NormalizeAngles(z_diff(1));
   NIS_RADAR_ = z_diff.transpose() * S.inverse() * z_diff;
   
   // prevents P from diverging (check source)
