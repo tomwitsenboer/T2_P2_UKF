@@ -87,8 +87,8 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     P_ << 1.0, 0.0, 0.0, 0.0, 0.0, //expected error for derivatives a little larger
           0.0, 1.0, 0.0, 0.0, 0.0,
           0.0, 0.0, 10.0, 0.0, 0.0, 
-          0.0, 0.0, 0.0, 1.0, 0.0,
-          0.0, 0.0, 0.0, 0.0, 10.0;
+          0.0, 0.0, 0.0, 10.0, 0.0,
+          0.0, 0.0, 0.0, 0.0, 0.1;
     
     //set values for RADAR and LIDAR:
     if (meas_package.sensor_type_ == MeasurementPackage::RADAR) {
@@ -120,9 +120,9 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     UpdateLidar(meas_package);
     }
     //if NONE
-    else {
-      return;
-    }
+    //else {
+    //  return;
+    //}
   }
 }
 
