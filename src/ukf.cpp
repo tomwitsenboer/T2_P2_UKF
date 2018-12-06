@@ -25,12 +25,7 @@ UKF::UKF() {
   // initial covariance matrix
   P_ = MatrixXd(5, 5);
 
-  // Process noise standard deviation longitudinal acceleration in m/s^2
-  double std_a_ = 0.2; //from Lecture
-
-  // Process noise standard deviation yaw acceleration in rad/s^2
-  double std_yawdd_ = 0.2; //from lecture
-  
+ 
   //DO NOT MODIFY measurement noise values below these are provided by the sensor manufacturer.
   // Laser measurement noise standard deviation position1 in m
   std_laspx_ = 0.15;
@@ -153,6 +148,13 @@ void UKF::Prediction(double delta_t) {
   //create augmented covariance matrix (from lecture 7-17)
   P_aug.fill(0.0);
   P_aug.topLeftCorner(5,5) = P_;
+  
+  // Process noise standard deviation longitudinal acceleration in m/s^2
+  double std_a_ = 0.2; //from Lecture
+
+  // Process noise standard deviation yaw acceleration in rad/s^2
+  double std_yawdd_ = 0.2; //from lecture
+  
   P_aug(5,5) = std_a_*std_a_;
   P_aug(6,6) = std_yawdd_*std_yawdd_;
   //create square root matrix (from lecture 7-17)
