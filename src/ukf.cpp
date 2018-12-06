@@ -1,6 +1,7 @@
 #include "ukf.h"
 #include "Eigen/Dense"
 #include <iostream>
+#include "tools.h"
 
 using namespace std;
 using Eigen::MatrixXd;
@@ -259,10 +260,9 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   S = S + weights(i) * z_diff * z_diff.transpose();
   }
   //add measurement noise covariance matrix
-  S(0,0) += std_radr_ * std_radr_;
-  S(1,1) += std_radphi_ * std_radphi_;
-  S(2,2) += std_radrd_ * std_radrd_;
-  
+  S(0,0) += std_laspx_ * std_laspx_;
+  S(1,1) += std_laspy_ * std_laspy_;
+    
     /* UPDATE LIDAR
   *****************/
   //create Vector for incoming lidar measurement
