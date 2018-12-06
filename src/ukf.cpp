@@ -162,21 +162,21 @@ void UKF::Prediction(double delta_t) {
   MatrixXd L = P_aug.llt().matrixL();
   //create augmented sigma points (from lecture 7-17)
   
-  /*try something different
+  //try something different
   Xsig_aug.col(0)  = x_aug;
   for (int i = 0; i< n_aug_; i++)
   {
     Xsig_aug.col(i+1)       = x_aug + sqrt(lambda_ + n_aug_) * L.col(i);
     Xsig_aug.col(i+1+n_aug_) = x_aug - sqrt(lambda_ + n_aug_) * L.col(i);
   }
-  */
   
+  /*
   MatrixXd A = P_aug.llt().matrixL();
   MatrixXd B = sqrt(lambda_ + n_aug_) * A;
   Xsig_aug.col(0) = x_aug;
   Xsig_aug.leftCols(n_aug_ + 1).rightCols(n_aug_) = x_aug.replicate(1, B.cols()) + B;
   Xsig_aug.rightCols(n_aug_) = x_aug.replicate(1, B.cols()) - B;
-  
+  */
   
  
   /* SIGMA POINT PREIDCTION
